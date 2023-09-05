@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import { Switch } from '@headlessui/react';
 import SampleData from "./SampleData";
 
@@ -7,10 +6,10 @@ function User() {
   const [enabled, setEnabled] = useState(false);
   
   return <div>
-      <div class="px-4 py-8 flex items-center">
-          <p class="text-2xl leading-3 text-gray-900 flex items-center">
-              <span class="font-semibold">Hey Mariana -</span>
-              <span class="font-normal text-base text-gray-500 ml-2">here's what's happening</span>
+      <div className="px-4 py-8 flex items-center">
+          <p className="text-2xl leading-3 text-gray-900 flex items-center">
+              <span className="font-semibold">Hey Mariana -</span>
+              <span className="font-normal text-base text-gray-500 ml-2">here's what's happening</span>
           </p>
           <Switch
               checked={enabled}
@@ -25,8 +24,8 @@ function User() {
         pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
               />
           </Switch>
-          <p class="text-2xl ml-4 leading-3 text-gray-900 flex items-center">
-              <span class="font-semibold">DEMO DATA </span>
+          <p className="text-2xl ml-4 leading-3 text-gray-900 flex items-center">
+              <span className="font-semibold">DEMO DATA </span>
           </p>
       </div>
 

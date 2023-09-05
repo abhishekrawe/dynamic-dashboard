@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HiOutlineSearch, HiFilter, HiArrowNarrowUp} from 'react-icons/hi';
+import { HiOutlineSearch, HiArrowNarrowUp, HiArrowNarrowDown } from 'react-icons/hi';
 import Pagination from './Pagination'
 
 export default function SampleData() {
@@ -7,6 +7,8 @@ export default function SampleData() {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
+    const [sortBy, setSortBy] = useState('name');
+    const [sortOrder, setSortOrder] = useState('asc'); 
     
     const itemsPerPage = 4;
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -16,13 +18,35 @@ export default function SampleData() {
         const searchData = `${user.name} ${user.username} ${user.email} ${user.phone} ${user.website}`;
         return searchData.toLowerCase().includes(searchQuery.toLowerCase());
     });
+     
+    const sortFunction = (a, b) => {
+        const columnA = a[sortBy].toLowerCase();
+        const columnB = b[sortBy].toLowerCase();
 
-
-    const displayedData = filteredData.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        if (columnA < columnB) {
+            return sortOrder === 'asc' ? -1 : 1;
+        }
+        if (columnA > columnB) {
+            return sortOrder === 'asc' ? 1 : -1;
+        }
+        return 0;
+    };
+    
+    const sortedData = [...filteredData].sort(sortFunction);
+    const displayedData = sortedData.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
+    };
+
+    const handleSortToggle = (column) => {
+        if (column === sortBy) {
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortBy(column);
+            setSortOrder('asc');
+        }
     };
 
     useEffect(() => {
@@ -31,6 +55,7 @@ export default function SampleData() {
             .then((data) => {
                 setUserData(data);
                 setLoading(false);
+                console.log('Fetched data:', data);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -57,8 +82,16 @@ export default function SampleData() {
                         />
                     </div>
                     <div className='flex gap-4'>
-                        <button className="text-gray-500 px-8 py-2 border border-gray-300 rounded-md relative">
-                            <HiFilter fontSize={20} className="text-black-700 absolute top-1/2 left-3 -translate-y-1/2" />
+                        <button
+                            className="text-gray-500 px-8 py-2 border border-gray-300 rounded-md relative"
+                            onClick={() => handleSortToggle('name')} // Example column, you can replace with the desired one
+                        >
+                            {sortBy === 'name' && sortOrder === 'asc' && (
+                                <HiArrowNarrowUp fontSize={20} className="text-black-700 absolute top-1/2 right-2 -translate-y-1/2" />
+                            )}
+                            {sortBy === 'name' && sortOrder === 'desc' && (
+                                <HiArrowNarrowDown fontSize={20} className="text-black-700 absolute top-1/2 right-2 -translate-y-1/2" />
+                            )}
                             Filter
                         </button>
                         <button className="text-gray-500 px-8 py-2 border border-gray-300 rounded-md relative">
