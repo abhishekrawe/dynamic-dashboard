@@ -6,18 +6,24 @@ export default function SampleData() {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState('');
     
     const itemsPerPage = 4;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const displayedData = userData.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(userData.length / itemsPerPage);
+
+    const filteredData = userData.filter((user) => {
+        const searchData = `${user.name} ${user.username} ${user.email} ${user.phone} ${user.website}`;
+        return searchData.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+
+    const displayedData = filteredData.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
-
-    // ----------------Fetching the Api---------------------------//
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -45,7 +51,9 @@ export default function SampleData() {
                         <input
                             type="text"
                             placeholder="Search..."
+                            value={searchQuery}
                             className="text-lg focus:outline-none active:outline-none border border-gray-300 w-[60rem] h-10 pl-11 pr-4 rounded-md"
+                            onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
                     <div className='flex gap-4'>
@@ -64,12 +72,11 @@ export default function SampleData() {
                     <p>Loading...</p>
                 ) : (
                     <>
-
-                        {/*--------------------- Displaying the Datain the table from API-----------------------  */}
                         <table className='w-full text-gray-700'>
                             <tbody>
                                 {displayedData.map((user) => (
                                     <tr key={user.id} className="border-b text-gray-500 border-gray-300 py-8">
+                                        <td className='py-3 pr-5'><input value="test" type="checkbox" /></td>
                                         <td className="py-3">{user.name}</td>
                                         <td className="py-3">{user.username}</td>
                                         <td className="py-3">{user.email}</td>
@@ -84,7 +91,6 @@ export default function SampleData() {
                         </table>
 
                         <div className="mt-4">
-                            {/* Displaying and Render the page button  */}
                                 <Pagination
                                     currentPage={currentPage}
                                     totalPages={totalPages}
