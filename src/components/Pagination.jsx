@@ -48,7 +48,7 @@ const renderPageButtons = (currentPage, totalPages, handlePageChange) => {
                 <button
                     key={i}
                     onClick={() => handlePageChange(i)}
-                    className={`px-3 py-2 mx-1 rounded-full ${currentPage === i ? 'bg-gray-200' : 'bg-gray-100'
+                    className={`px-4 py-2 mx-1 rounded-full ${currentPage === i ? 'bg-blue-500' : 'bg-gray-100'
                         }`}
                 >
                     {i}
