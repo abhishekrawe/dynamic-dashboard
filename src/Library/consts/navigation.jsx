@@ -25,25 +25,22 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     {
         key: 'Comments',
         label: 'Comments',
-        path: '/Comments',
         icon: <HiOutlineUser />
     },
     {
         key: 'Albums',
         label: 'Albums',
-        path: '/Albums',
         icon: <HiOutlineUsers />
     },
     {
         key: 'Photo',
         label: 'Photo',
-        path: '/Photo',
         icon: <HiOutlineChartSquareBar />
     },
     {
         key: 'Users',
         label: 'Users',
-        path: '/Users',
+        path: '/users',
         icon: <HiOutlineAnnotation />
     }
 ]
@@ -52,7 +49,6 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
     {
         key: 'settings',
         label: 'Settings',
-        path: '/settings',
         icon: <HiOutlineCog />
     },
     {
