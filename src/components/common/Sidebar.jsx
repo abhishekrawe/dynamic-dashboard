@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { DASHBOARD_SIDEBAR_BOTTOM_LINKS, DASHBOARD_SIDEBAR_LINKS } from "../../Library/consts/navigation";
 
-const linkClasses = 'flex items-center gap-2 font-light px-3 py-2 hover:bg-gray-300 hover:no-underline active:bg-neutral'
+const linkClasses = 'flex items-center gap-2 font-semibold text-gray-700 px-3 py-2 hover:bg-gray-300 hover:no-underline active:bg-neutral'
 
 
 export const Sidebar = () => {

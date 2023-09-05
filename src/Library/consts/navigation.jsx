@@ -41,7 +41,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
         key: 'Users',
         label: 'Users',
         path: '/users',
-        icon: <HiOutlineAnnotation />
+        icon: <HiOutlineAnnotation className="text-blue-500" />
     }
 ]
 
