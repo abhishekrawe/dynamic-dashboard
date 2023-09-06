@@ -54,7 +54,6 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
     {
         key: 'logout',
         label: 'Logout',
-        path: '/logout',
         icon: <HiOutlineLogout />
     }
 ]

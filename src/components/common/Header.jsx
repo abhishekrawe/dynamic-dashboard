@@ -3,9 +3,11 @@ import { Menu, Popover, Transition } from '@headlessui/react'
 import { HiOutlineBell, HiOutlineSearch, HiOutlineMail } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Header() {
     const navigate = useNavigate()
+    const { loginWithRedirect , isAuthenticated, logout , user } = useAuth0();
 
     return (
         <div className="bg-white h-16 px-4 flex items-center border-b border-gray-200 justify-between">
@@ -114,14 +116,14 @@ export default function Header() {
                                             'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
                                         )}
                                     >
-                                        Your Profile
+                                        {isAuthenticated && <p> {user.name} </p>}
                                     </div>
                                 )}
                             </Menu.Item>
                             <Menu.Item>
                                 {({ active }) => (
                                     <div
-                                        onClick={() => navigate('/settings')}
+                                        onClick={() => navigate('/')}
                                         className={classNames(
                                             active && 'bg-gray-100',
                                             'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
@@ -139,7 +141,12 @@ export default function Header() {
                                             'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
                                         )}
                                     >
-                                        Sign out
+                                        {
+                                            isAuthenticated ? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                                Log Out
+                                            </button> : <button onClick={() => loginWithRedirect()}>Log In</button>
+                                        }
+
                                     </div>
                                 )}
                             </Menu.Item>
