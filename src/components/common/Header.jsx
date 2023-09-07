@@ -14,14 +14,14 @@ export default function Header() {
             <img
                 src="/Saasdenlogo.png"
                 alt="Logo"
-                className="h-16 w-36 ml-2"
+                className="h-12 w-20 mr-2 lg:h-16 lg:w-36 lg:ml-4 sm:ml-[-11px]"
             />
-            <div className="relative pr-16">
+            <div className="relative sm:pr-16 md:pr-16">
                 <HiOutlineSearch fontSize={20} className="text-gray-400 absolute top-1/2 left-3 -translate-y-1/2" />
                 <input
                     type="text"
                     placeholder="Search..."
-                    className="text-sm focus:outline-none active:outline-none border border-gray-300 w-[60rem] h-10 pl-11 pr-4 rounded-md"
+                    className="text-sm focus:outline-none active:outline-none border border-gray-300 w-full md:w-[60rem] h-10 pl-11 pr-4 rounded-md"
                 />
             </div>
             <div className="flex items-center gap-2 mr-2">
