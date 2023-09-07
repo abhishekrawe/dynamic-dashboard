@@ -1,70 +1,48 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ❄️Frontend Developer Assignment
 
-## Available Scripts
 
-In the project directory, you can run:
+- ⬇️ For Running this repository on local 
+- ⬇️ Frontend - cd to dynamic-dashboard > npm install > npm start
 
-### `npm start`
+## 🃏Glimse of Project ⏬
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `video `  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+https://github.com/abhishekrawe/dynamic-dashboard/assets/65603830/db13225c-3376-4097-aa01-23124183497c
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 🐸Problem Statement and my approach (अप्रोच्‌)🐸
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🐸 Tech Stack Used 🐸 -
+- [ReactJs](https://react.dev/) - Dashboard created using reactJs
+- [Tailwind](https://tailwindcss.com/docs/) - For styling i used Tailwind css
+- [Fake JSON Data](https://jsonplaceholder.typicode.com/) - Integrate Fake Data 
+- [Auth0](https://auth0.com/) - Sign-in / Google Sign in Integration
+- [PieSocket](https://www.piesocket.com/) - PieSocket to enable real-time communication.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💜 Create an Dashbooard using React JS and realtime Data Updates across Browser Tabs using PieSocekt.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ - **Dashboard Creation**: Made a Dashboard with provided Figma design and for styling used Tailwind ,
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ - **Integrate Fake Data**: Fetched data from Fake Data , parses the JSON response, updates the component's state, logs the data, and handles errors while updating the loading state.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ - **Pagination**: added pafination by tracking the current page, calculating the range of items to display based on the current page and items per page, and providing navigation controls to move between pages.
 
-## Learn More
+ - **Real-time Search**: allowing user to search for data based on their input text. The search operation is performed on a combination of user attributes, including name, username, email, phone, and website, and the filtered results are displayed as the user types in the input field.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - **Sorting**: sort a data table in ascending and descending order based on a selected column, using sortBy and sortOrder state variables, with sorting determined by the alphanumeric order.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ - **Google Sign-In Integration:** integrated Auth0 for user authentication, providing sign-in and sign-up options with both username/email and Google, displaying a logout button and user information for authenticated users, while showing only a login button for those not logged in.
 
-### Code Splitting
+- **Real-time Data Updates across Browser Tabs**: chat interface using PieSocket, allowing users to send and receive messages in a chat room, with real-time updates, presence tracking, and user-generated usernames. PieSocket New for me, and while I'm learning and developing it, I'm encountering various challenges that I'll address along the way.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
