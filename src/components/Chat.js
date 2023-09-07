@@ -7,8 +7,8 @@ const Chat = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   const username = `user_${Math.floor(Math.random() * 1000)}`;
-  const clusterId = "free.blr2";
-  const apiKey = "iISVUM9SheKFTsbbnlbrOivnGXgJ82HIBCa7Ry9p";
+  const clusterId = process.env.REACT_APP_CLUSTER_ID;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const channelRef = useRef(null);
 
@@ -37,7 +37,7 @@ const Chat = () => {
       piesocket.unsubscribe("chat-room");
       channelRef.current = null;
     };
-  }, [username]);
+  }, [username, apiKey, clusterId]);
 
   const sendMessage = (e) => {
     e.preventDefault();
