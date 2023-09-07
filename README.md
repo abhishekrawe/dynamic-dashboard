@@ -5,6 +5,18 @@
 - ⬇️ For Running this repository on local 
 - ⬇️ Frontend - cd to dynamic-dashboard > npm install > npm start
 
+Setting Up  PieSocket
+
+- Go To PieSocekt (https://www.piesocket.com/)
+- Click over Get Started or Create a Channel (https://www.piesocket.com/app/v4/channels/create)
+- Copy your Unique API Key and ClusterId
+- add your own apiKey and ClusterId replace
+    
+`` const clusterId = "Your Cluster Id";
+   const apiKey = "Your API Key";
+``
+
+
 ## 🃏Glimse of Project ⏬
 
 ### `video `  
